@@ -31,17 +31,17 @@ entry1.bind('<FocusOut>',on_leave)
 def calculate():
     try:
         amount = int(entry1.get())
-        if amount > 100:
+        if amount >= 100:
             taxes = (1.5/100)*amount
-            messagebox.showinfo(title="Taxes",message=f"GHc{taxes} is your E-Levy Tax")
+            messagebox.showinfo(title="Taxes",message=f"GHc{taxes+amount} is your payment")
         else:
-            messagebox.showinfo(title="No Taxes",message="Your dont pay E-levy on ammounts less than GHc100 ")
+            messagebox.showinfo(title="No Taxes",message="Your dont pay E-levy on ammounts less than or equal GHc100 ")
     except ValueError:
         try:
             amount = float(entry1.get())
             if amount > 100:
                 taxes = (1.5/100)*amount
-                messagebox.showinfo(title="Taxes",message=f"GHc{taxes} is your E-Levy Tax")
+                messagebox.showinfo(title="Taxes",message=f"GHc{taxes+amount} is your payment")
             else:
                 messagebox.showinfo(title="No Taxes",message="Your dont pay E-levy on ammounts less than GHc100 ")
         except ValueError:
